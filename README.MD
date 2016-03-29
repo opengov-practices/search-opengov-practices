@@ -1,11 +1,17 @@
 
-#H1 What is this tool?
+## What is this app?
+This the code of web app built using [SearchKit](http://searchkit.co/), [datamaps 0.5.5](http://datamaps.github.io/), [flag-icon-css](http://lipis.github.io/flag-icon-css/), [react-bootstrap](https://react-bootstrap.github.io/).
+- Facetted search using [ElasticSearch Search](https://www.elastic.co/).
+- Coloured map view of country results (choropleth) using [datamaps 0.5.5](http://datamaps.github.io/).
 
-#H1 Live demo
+[<img src="./data/facetted-search-searchkit.png">](http://opengov.testproject.eu/)
+[<img src="./data/map-search-datamaps.png"/>](http://opengov.testproject.eu/?view=map)
+
+## Live demo
 [http://opengov.testproject.eu/](http://opengov.testproject.eu/ "Search open gov practices".)
 
 
-#H1 GET STARTED
+## Getting started
 - npm install
-- manually install flag icons and [datamaps 0.5.5](http://datamaps.github.io/) npdatamaps.world.hires.min.js
+- manually copy [flag-icon-css](http://lipis.github.io/flag-icon-css/) and [datamaps 0.5.5](http://datamaps.github.io/) into your nodes_modules folder.
 - npm start
