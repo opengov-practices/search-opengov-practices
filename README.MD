@@ -1,11 +1,12 @@
 
-## What is this app?
-This the code of web app built using [SearchKit](http://searchkit.co/), [datamaps 0.5.5](http://datamaps.github.io/), [flag-icon-css](http://lipis.github.io/flag-icon-css/), [react-bootstrap](https://react-bootstrap.github.io/).
-- Facetted search using [ElasticSearch Search](https://www.elastic.co/).
+## What is this?
+This is a ReactJS Web app with the following features:
+- Faceted search using [ElasticSearch Search](https://www.elastic.co/) and [flag-icon-css](http://lipis.github.io/flag-icon-css/).
+- Modal window to display search results using [react-bootstrap](https://react-bootstrap.github.io/).
 - Coloured map view of country results (choropleth) using [datamaps 0.5.5](http://datamaps.github.io/).
 
-[<img src="./data/facetted-search-searchkit.png" width="300" />](http://opengov.testproject.eu/)
-[<img src="./data/map-search-datamaps.png" width="300" />](http://opengov.testproject.eu/?view=map)
+[<img src="./data/facetted-search-searchkit.png" width="500" />](http://opengov.testproject.eu/)
+[<img src="./data/map-search-datamaps.png" width="500" />](http://opengov.testproject.eu/?view=map)
 
 ## Live demo
 [http://opengov.testproject.eu/](http://opengov.testproject.eu/ "Search open gov practices".)
