@@ -4,8 +4,8 @@ This the code of web app built using [SearchKit](http://searchkit.co/), [datamap
 - Facetted search using [ElasticSearch Search](https://www.elastic.co/).
 - Coloured map view of country results (choropleth) using [datamaps 0.5.5](http://datamaps.github.io/).
 
-[<img src="./data/facetted-search-searchkit.png">](http://opengov.testproject.eu/)
-[<img src="./data/map-search-datamaps.png"/>](http://opengov.testproject.eu/?view=map)
+[<img src="./data/facetted-search-searchkit.png" width="300" />](http://opengov.testproject.eu/)
+[<img src="./data/map-search-datamaps.png" width="300" />](http://opengov.testproject.eu/?view=map)
 
 ## Live demo
 [http://opengov.testproject.eu/](http://opengov.testproject.eu/ "Search open gov practices".)
