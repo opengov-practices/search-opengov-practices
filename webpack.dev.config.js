@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool:"eval",
@@ -11,11 +12,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static'
+    publicPath: 'http://localhost:3000/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+	new ExtractTextPlugin("styles.css", {allChunks:true})
   ],
   resolve: {
     alias: {
@@ -36,18 +38,20 @@ module.exports = {
           'babel-loader',
           'ts-loader'
         ],
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
+		exclude: /node_modules/
       },
       {
         test: /\.(scss|css)$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+		loader: ExtractTextPlugin.extract("style-loader","css-loader!sass-loader")
       },
-      {
-        test: /\.(jpg|png|svg)$/,
-        loaders: [
-            'file-loader?name=[path][name].[ext]'
-        ]
-      }
+      // loaders for font-awesome fonts 
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+	    loader: 'url-loader?limit=10000&minetype=application/font-woff'
+	  },
+      { test: /\.(ttf|eot|jpg|png|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+	    loader: 'file-loader'
+	  }
     ]
   }
 };

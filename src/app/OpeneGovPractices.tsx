@@ -27,6 +27,8 @@ import DataMap from './DataMap';
 import "./styles/index.scss";
 import "searchkit/theming/theme.scss";
 import "flag-icon-css-master/css/flag-icon.min.css";
+import "font-awesome/css/font-awesome.min.css"
+var FontAwesome = require('react-fontawesome');
 
 
 
@@ -76,9 +78,19 @@ const PracticeHitsMap = (props)=> {
 		<div style={{width: '100%', boxSizing: 'border-box', padding: 8}}>
 			<DataMap hits={props.hits}/>
 		</div>
-	)
+		)
 	}
 
+//
+//className={props.bemBlocks.item().mix(props.bemBlocks.container("item"))}
+const InitialLoaderComponent = (props) => {
+	return (
+		<div>
+			loading please wait...
+		</div>
+		)
+	}
+	
 //This component is used to display an individual hit as a modal window.
 class PracticeHit extends React.Component<any, any> {
 	constructor(props){
@@ -158,12 +170,12 @@ export class OpeneGovPractices extends React.Component<any, any> {
 							<div className="sk-layout__top-bar sk-top-bar">
 								<div className="sk-top-bar__content">
 								  <div className="my-logo"></div>
-								  <SearchBox translations={{"searchbox.placeholder":"search practices of open government"}} prefixQueryFields={["Title", "Description", "Stakeholder"]} queryFields={["Title", "Description", "Stakeholder", "Link"]} queryOptions={{"minimum_should_match":"80%"}} autofocus={true} searchOnChange={true} />
+								  <SearchBox translations={{"searchbox.placeholder":"search practices of open government"}} prefixQueryFields={["Title", "Description", "Stakeholder"]} queryFields={["Title", "Description", "Stakeholder", "Link"]} queryOptions={{"minimum_should_match":"80%"}} autofocus={true} searchOnChange={true} />								  
 								</div>
 							</div>
 							<div className="sk-layout__body">
 								<div className="sk-layout__filters">
-									<RefinementListFilter id="country" title="country" field="CountryCodeA3" operator="OR" size={7}/>
+									<RefinementListFilter id="country" title="Country" field="Country" operator="OR" size={7}/>
 									<RefinementListFilter id="aspect" title="Open Gov aspect" field="Aspect" operator="OR" size={7}/>
 									<RefinementListFilter id="lifecycle" title="Lifecycle" field="Lifecycle" operator="OR" size={7}/>
 									<RefinementListFilter id="power" title="Power of government" field="GovernmentPower" operator="OR" size={7}/>
@@ -175,15 +187,16 @@ export class OpeneGovPractices extends React.Component<any, any> {
 								<div className="sk-layout__results sk-results-list">
 									<div className="sk-results-list__action-bar sk-action-bar">							
 										<div className="sk-action-bar__info">
-												<HitsStats translations={{
-											"hitstats.results_found":"{hitCount} results found"
-										  }}/>
+												<HitsStats translations={{											"hitstats.results_found":"{hitCount} results found"}}/>
 												<ViewSwitcherToggle/>
-												<SortingSelector options={[
-													{label:"Relevance", field:"_score", order:"desc",defaultOption:true},
-													{label:"Title Z-A", field:"Title", order:"desc"},
-													{label:"Title A-Z", field:"Title", order:"asc"}
-												]}/>
+												<div className="downloads-section">
+												<a href="https://docs.google.com/spreadsheets/d/1-4r3p7DE7GaGes4K4pjLR3YU0WPk9YT5SiwMD3IqhZ0/pub?gid=611383747&single=true&output=csv" target="_blank"  data-toggle="tooltip" title="Download the dataset in CSV format." className="downloads-section-icon">
+												<FontAwesome name="file-text" size="2x"/>
+												</a>		
+												<a href="https://github.com/opengov-practices/search-opengov-practices/" target="_blank" data-toggle="tooltip" title="Download the source code from github." className="downloads-section-icon">
+												<FontAwesome name="github-square" size="2x"/>
+												</a>
+												</div>
 										</div>
 									<div className="sk-action-bar__filters">
 									  <SelectedFilters/>
@@ -201,19 +214,19 @@ export class OpeneGovPractices extends React.Component<any, any> {
 								  scrollTo="body"
 								/>								
 								<NoHits suggestionsField={"Title"}/>
-								<InitialLoader/>
+								<InitialLoader component={InitialLoaderComponent}/>
 								<Pagination showNumbers={true}/>
 							</div>
 						</div>
-						<a className="view-src-link" href="https://ec.europa.eu/digital-agenda/en/egovernment-studies">View EU eGovernment studies»
+						<a className="view-src-link" target="_blank" href="https://github.com/opengov-practices/search-opengov-practices/issues">Submit feedback»
 						</a>
 						</div>
 					</div>
 				</SearchkitProvider>						
 			</div>
         </div>
-        <div className="page__footer">
-          <p>Data collected in the context of study 'SMART 2015/0041 Towards faster implementation and take-up of open government'. Copyright PwC EU Services, 2016. <br></br>
+        <div className="page__footer">	
+          <p>Data collected in the context of study '<a href="https://ec.europa.eu/digital-agenda/en/egovernment-studies">SMART 2015/0041</a> Towards faster implementation and take-up of open government'.<br></br>
             <a href="http://www.makingspeechestalk.com/ch/OpenGovernmentServices/">Taxonomies</a> created in the context of study '<a href="https://joinup.ec.europa.eu/community/opengov/og_page/ogs-study">SMART 2014/0066</a> "Analysis of the value of new generation of eGovernment services'. </p>
         </div>
     </div>

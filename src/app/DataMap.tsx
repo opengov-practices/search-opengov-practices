@@ -105,6 +105,7 @@ export default class DataMap extends React.Component<any, any>  {
   }
   componentDidUpdate(){
     this.datamap.updateChoropleth(this.reducedData());
+	//this.datamap.labels({labelColor: 'black', fontSize: 10, 'customLabelText': countryDefaultLabels});
   }
   componentWillUnmount(){
     d3.select('svg').remove();
@@ -154,4 +155,61 @@ const countryDefaults = {
 	'SGP': {fillColor: defaultFill, value: ''},
 	'SVN': {fillColor: defaultFill, value: ''},
 	'SVK': {fillColor: defaultFill, value: ''}
-    }
+    };
+
+	/*
+const countryDefaultLabels = {
+	'AUT': ' ',
+	'BEL': ' ',
+	'BGR': ' ',
+	'CAN': ' ',
+	'CHE': '',
+	'CYP': '',
+	'CZE': '',
+	'DEU': '',
+	'DNK': '',
+	'EST': '',
+	'ESP': '',
+	'EUR': '',
+	'FIN': '',
+	'FRA': '',
+	'GBR': '',
+	'GRC': '',
+	'HRV': '',
+	'HUN': '',
+	'IRL': '',
+	'IND': '',
+	'ISL': '',
+	'ITA': '',
+	'LTU': '',
+	'LUX': '',
+	'LVA': '',
+	'MLT': '',
+	'NLD': '',
+	'NOR': '',
+	'POL': '',
+	'PRT': '',
+	'ROU': '',
+	'SWE': '',
+	'SGP': ' ',
+	'SVN': '',
+	'SVK': '',
+	'GIB': ' ',
+	'AND': ' ',
+	'TUN': ' ',
+	'TUR': ' ',
+	'FRO': ' ',
+	'IMN': ' ',
+	'ALA': ' ',
+	'BLR': ' ',
+	'UKR': ' ',
+	'MDA': ' ',
+	'GEO': ' ',
+	'ARM': ' ',
+	'AZE': ' ',
+	'IRN': ' ',
+	'IRQ': ' ',
+	'LBN': ' ',
+	'SYR': ' '
+    };
+	*/

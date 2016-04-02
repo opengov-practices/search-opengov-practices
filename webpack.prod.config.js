@@ -47,19 +47,25 @@ module.exports = {
     loaders: [
       {
         test: /\.tsx?$/,
-        loaders: ['react-hot', 'ts'],
-        include: path.join(__dirname, 'src')
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader","css-loader!sass-loader")
-      },
-      {
-        test: /\.(jpg|png|svg)$/,
         loaders: [
-            'file-loader?name=[path][name].[ext]'
-        ]
-      }
+          'react-hot',
+          'babel-loader',
+          'ts-loader'
+        ],
+        include: path.join(__dirname, 'src'),
+		exclude: /node_modules/
+      },
+      {
+        test: /\.(scss|css)$/,
+		loader: ExtractTextPlugin.extract("style-loader","css-loader!sass-loader")
+      },
+      // loaders for font-awesome fonts 
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+	    loader: 'url-loader?limit=10000&minetype=application/font-woff'
+	  },
+      { test: /\.(ttf|eot|jpg|png|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+	    loader: 'file-loader'
+	  }
     ]
   }
 };
